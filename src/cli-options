@@ -40,7 +40,9 @@ PREFIX='(?:((?<=^)|(?<=[^\-\_a-zA-Z0-9]))(-|‐))'
 TAIL='([a-zA-Z]{1})'
 SHORT="$PREFIX$TAIL"
 
-RE="$LONG|$SHORT"
+COMMAND='^\s{2}[a-z]+(?=\s{2,})'
+
+RE="$LONG|$SHORT|$COMMAND"
 
 # If on macOS check if GNU grep is installed as ggrep
 if [[ "$(uname)" == "Darwin" ]] && [[ "$(command -v ggrep 2>/dev/null)" ]]; then
